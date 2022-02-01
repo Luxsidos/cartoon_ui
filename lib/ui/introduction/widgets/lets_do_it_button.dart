@@ -1,5 +1,6 @@
 import 'package:cartoon_ui/core/theme/app_colors.dart';
 import 'package:cartoon_ui/core/theme/app_text_style.dart';
+import 'package:cartoon_ui/ui/main/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LetsDoItButton extends StatelessWidget {
@@ -8,7 +9,12 @@ class LetsDoItButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () {},
+      onPressed: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomePage(),
+        ),
+      ),
       child: Row(
         children: const [
           Text(

@@ -9,6 +9,7 @@ ThemeData appThemeData = ThemeData(
     color: AppColors.white,
     elevation: 0.0,
     titleTextStyle: AppTextStyle.appBar,
+    iconTheme: IconThemeData(color: AppColors.black),
     systemOverlayStyle:  SystemUiOverlayStyle(
       statusBarColor: AppColors.white,
       statusBarIconBrightness: Brightness.dark,

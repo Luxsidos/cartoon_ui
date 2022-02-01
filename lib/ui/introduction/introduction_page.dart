@@ -22,6 +22,8 @@ class _IntroductionPageState extends State<IntroductionPage> {
   double _bottom = 0.0;
   double _left = -1000.0;
 
+  bool isOpen = false;
+
   @override
   void initState() {
     _getOffset(_key);
@@ -100,13 +102,25 @@ class _IntroductionPageState extends State<IntroductionPage> {
             Expanded(
               child: Stack(
                 fit: StackFit.expand,
-                children: const [
-                  ShapeWidget("three", AppColors.yellowAccent,
-                      left: -40.0, top: -20.0),
-                  ShapeWidget("two", AppColors.tealAccent,
-                      right: -80.0, bottom: -20.0),
-                  ShapeWidget("one", AppColors.black,
-                      left: -100.0, bottom: -100.0),
+                children: [
+                  ShapeWidget(
+                    "three",
+                    AppColors.yellowAccent,
+                    left: isOpen ? -40.0 : -240.0,
+                    top: isOpen ? -20.0 : 230.0,
+                  ),
+                  ShapeWidget(
+                    "two",
+                    AppColors.tealAccent,
+                    right: isOpen ? -80.0 : -280.0,
+                    bottom: isOpen ? -20.0 : -250.0,
+                  ),
+                  ShapeWidget(
+                    "one",
+                    AppColors.black,
+                    left: isOpen ? -100.0 : -300.0,
+                    bottom: isOpen ? -100.0 : -300.0,
+                  ),
                 ],
               ),
             ),
@@ -123,6 +137,10 @@ class _IntroductionPageState extends State<IntroductionPage> {
 
       _bottom = position.dy;
       _left = 0.0;
-    }).then((value) => setState(() {}));
+    }).then(
+      (value) => setState(() {
+        isOpen = true;
+      }),
+    );
   }
 }

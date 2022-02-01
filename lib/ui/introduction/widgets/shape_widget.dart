@@ -11,7 +11,9 @@ class ShapeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
+    return AnimatedPositioned(
+      duration: const Duration(milliseconds: 1300),
+      curve: Curves.easeOutQuint,
       top: top,
       bottom: bottom,
       right: right,
@@ -22,6 +24,5 @@ class ShapeWidget extends StatelessWidget {
         color: backgroundColor,
       ),
     );
-    ;
   }
 }

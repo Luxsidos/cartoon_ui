@@ -1,3 +1,4 @@
+import 'package:cartoon_ui/core/constants/border/const_border.dart';
 import 'package:cartoon_ui/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class CurrentDotWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100.0),
         color: _index == _currentIndex ? AppColors.black : AppColors.white,
-        border: Border.all(color: AppColors.black, width: 2.5),
+        border: constBorder,
       ),
     );
   }

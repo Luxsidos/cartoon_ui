@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class DottedBorderWidget extends StatelessWidget {
   final Alignment alignment;
+
   const DottedBorderWidget(this.alignment, {Key? key}) : super(key: key);
 
   @override
