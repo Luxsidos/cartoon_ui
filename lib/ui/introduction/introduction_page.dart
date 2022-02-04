@@ -98,7 +98,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
                     child: LetsDoItButton(() async {
                       setState(() => isOpen = false);
 
-                      await Future.delayed(const Duration(milliseconds: 250));
+                      await Future.delayed(const Duration(milliseconds: 350));
 
                       Navigator.pushReplacement(
                         context,
