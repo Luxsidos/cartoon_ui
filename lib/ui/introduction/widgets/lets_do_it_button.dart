@@ -1,20 +1,15 @@
 import 'package:cartoon_ui/core/theme/app_colors.dart';
 import 'package:cartoon_ui/core/theme/app_text_style.dart';
-import 'package:cartoon_ui/ui/main/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LetsDoItButton extends StatelessWidget {
-  const LetsDoItButton({Key? key}) : super(key: key);
+  final VoidCallback _callback;
+   const LetsDoItButton(this._callback, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomePage(),
-        ),
-      ),
+      onPressed: _callback,
       child: Row(
         children: const [
           Text(

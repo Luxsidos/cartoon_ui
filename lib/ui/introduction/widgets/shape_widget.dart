@@ -13,7 +13,7 @@ class ShapeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 1300),
-      curve: Curves.easeOutQuint,
+      curve: Curves.easeInOutQuint,
       top: top,
       bottom: bottom,
       right: right,

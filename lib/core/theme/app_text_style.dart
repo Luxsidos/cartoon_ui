@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 
   static const TextStyle appBar = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: 24.0,
+    fontSize: 22.0,
     color: AppColors.black,
   );
 

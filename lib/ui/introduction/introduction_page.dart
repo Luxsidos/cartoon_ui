@@ -5,6 +5,7 @@ import 'package:cartoon_ui/ui/introduction/widgets/dotted_border_widget.dart';
 import 'package:cartoon_ui/ui/introduction/widgets/introduction_widget.dart';
 import 'package:cartoon_ui/ui/introduction/widgets/lets_do_it_button.dart';
 import 'package:cartoon_ui/ui/introduction/widgets/shape_widget.dart';
+import 'package:cartoon_ui/ui/main/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionPage extends StatefulWidget {
@@ -94,7 +95,18 @@ class _IntroductionPageState extends State<IntroductionPage> {
                     curve: Curves.easeOutCirc,
                     bottom: _bottom - 52.0,
                     left: _left,
-                    child: const LetsDoItButton(),
+                    child: LetsDoItButton(() async {
+                      setState(() => isOpen = false);
+
+                      await Future.delayed(const Duration(milliseconds: 250));
+
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    }),
                   ),
                 ],
               ),
