@@ -47,16 +47,13 @@ class _IntroductionPageState extends State<IntroductionPage> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.horizontal(
-                              right: Radius.circular(56.0),
-                            ),
-                            child: SizedBox(
-                              height: 260.0,
-                              child: PageView.builder(
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              PageView.builder(
                                 key: _key,
                                 controller: PageController(
-                                  viewportFraction: 1.18,
+                                  viewportFraction: 0.86,
                                   initialPage: _currentIndex,
                                 ),
                                 scrollDirection: Axis.vertical,
@@ -70,7 +67,33 @@ class _IntroductionPageState extends State<IntroductionPage> {
                                   return const IntoductionWidget();
                                 },
                               ),
-                            ),
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Container(
+                                  height: 40.0,
+                                  decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [AppColors.white, Colors.white10],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  height: 40.0,
+                                  decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [Colors.white10, AppColors.white],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -91,21 +114,21 @@ class _IntroductionPageState extends State<IntroductionPage> {
                     ),
                   ),
                   AnimatedPositioned(
-                    duration: const Duration(milliseconds: 600),
+                    duration: const Duration(milliseconds: 900),
                     curve: Curves.easeOutCirc,
-                    bottom: _bottom - 52.0,
+                    bottom: _bottom - 4,
                     left: _left,
                     child: LetsDoItButton(() async {
                       setState(() => isOpen = false);
 
                       await Future.delayed(const Duration(milliseconds: 350));
 
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const HomePage(),
                         ),
-                      );
+                      ).then((value) => setState(() => isOpen = true));
                     }),
                   ),
                 ],

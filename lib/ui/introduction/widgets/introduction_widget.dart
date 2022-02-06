@@ -10,7 +10,6 @@ class IntoductionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 260.0,
       width: AppSize.width(0.85, context),
       margin: const EdgeInsets.symmetric(
         vertical: 24.0,

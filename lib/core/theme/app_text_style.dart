@@ -16,6 +16,11 @@ import 'package:flutter/cupertino.dart';
     fontSize: 18.0,
     color: AppColors.black,
   );
+  static const TextStyle flags = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+    color: AppColors.blackTwo,
+  );
 
   static const TextStyle main = TextStyle(
     fontWeight: FontWeight.w400,

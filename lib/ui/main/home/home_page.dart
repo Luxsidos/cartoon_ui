@@ -1,4 +1,5 @@
 import 'package:cartoon_ui/core/constants/border/const_border.dart';
+import 'package:cartoon_ui/core/custom_widgets/drawer/lang_drawer.dart';
 import 'package:cartoon_ui/core/theme/app_colors.dart';
 import 'package:cartoon_ui/core/theme/app_text_style.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -18,26 +19,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text("Please fill in the data"),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-            child: TextButton.icon(
-              onPressed: () {},
-              label: const Icon(Icons.arrow_drop_down),
-              icon: const CircleAvatar(
-                backgroundColor: AppColors.blackTwo,
-              ),
-              style: TextButton.styleFrom(
-                primary: AppColors.black,
-              ),
-            ),
+            child: Builder(builder: (context) {
+              return TextButton.icon(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                label: const Icon(Icons.arrow_drop_down),
+                icon: const CircleAvatar(
+                  backgroundColor: AppColors.blackTwo,
+                ),
+                style: TextButton.styleFrom(
+                  primary: AppColors.black,
+                ),
+              );
+            }),
           ),
         ],
       ),
+      drawer: const LangDrawer(),
       body: SafeArea(
         child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           physics: const BouncingScrollPhysics(),
           children: [
             const Text(
@@ -85,8 +90,7 @@ class _HomePageState extends State<HomePage> {
                                     padding: const EdgeInsets.all(16.0),
                                     decoration: BoxDecoration(
                                       color: AppColors.white,
-                                      borderRadius:
-                                          BorderRadius.circular(24.0),
+                                      borderRadius: BorderRadius.circular(24.0),
                                       border: constBorder,
                                     ),
                                     child: Row(
@@ -103,8 +107,7 @@ class _HomePageState extends State<HomePage> {
                                         Expanded(
                                           child: Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .spaceBetween,
+                                                MainAxisAlignment.spaceBetween,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
@@ -191,8 +194,7 @@ class _HomePageState extends State<HomePage> {
                               style: AppTextStyle.data,
                             ),
                             style: OutlinedButton.styleFrom(
-                              fixedSize:
-                                  const Size.fromWidth(double.maxFinite),
+                              fixedSize: const Size.fromWidth(double.maxFinite),
                               padding:
                                   const EdgeInsets.symmetric(vertical: 16.0),
                               shape: RoundedRectangleBorder(
@@ -215,8 +217,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           style: OutlinedButton.styleFrom(
                             fixedSize: const Size.fromWidth(double.maxFinite),
-                            padding:
-                                const EdgeInsets.symmetric(vertical: 16.0),
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(56.0),
                             ),
@@ -278,7 +279,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.center,
             children: [
               const Align(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.topCenter,
                 child: CircleAvatar(
                   backgroundColor: AppColors.black,
                   radius: 6.0,
